@@ -63,3 +63,4 @@ bash $HOME/workspace/sbomer-setup/sbomer-macos-setup/batch-run-commands.sh
 # minikube -p sbomer dashboard
 # kubectl port-forward -n tekton-pipelines service/tekton-dashboard 9097:9097
 # kubectl port-forward services/sbomer-mequal 8181:80
+
