@@ -4,7 +4,7 @@ minikube -p sbomer stop
 minikube -p sbomer delete
 
 # replace minikube setup command with below in ./hack/minikube-setup.sh:
-MINIKUBE_FOR_MAC="exec minikube start -p sbomer --driver=qemu --network=socket_vmnet --cpus=4 --memory=4g --disk-size=20GB --kubernetes-version=v1.25.16 --embed-certs"
+MINIKUBE_FOR_MAC="exec minikube start -p sbomer --driver=qemu --network=socket_vmnet --cpus=4 --memory=4g --disk-size=20GB --kubernetes-version=v1.29.14 --embed-certs"
 sed -i '' "
 /^exec minikube start.*/c\\
 $MINIKUBE_FOR_MAC
@@ -12,7 +12,7 @@ $MINIKUBE_FOR_MAC
 
 bash ./hack/minikube-setup.sh
 
-kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.53.3/release.yaml
+kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.59.6/release.yaml
 
 # Tekton dashboard support
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
@@ -47,8 +47,8 @@ helm --kube-context sbomer-local upgrade --install --values env/app/prod.yaml sb
 
 popd
 
-echo "Giving 20 seconds of time for pods to start up..."
-sleep 20
+echo "Giving 30 seconds of time for pods to start up..."
+sleep 30
 
 bash $HOME/workspace/sbomer-setup/sbomer-macos-setup/batch-run-commands.sh
 
