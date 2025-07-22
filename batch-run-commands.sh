@@ -10,7 +10,7 @@ declare -a FORWARDS=(
     "kubectl port-forward services/sbomer-mequal 8181:80"
     "minikube -p sbomer dashboard"
     "kubectl port-forward -n tekton-pipelines service/tekton-dashboard 9097:9097"
-    "cd $SCRIPT_CWD && bash ./hack/run-service-dev.sh -Dquarkus.rest-client.mequal.url=http://dummy -Dquarkus.rest-client.errata.url=http://dummy -Dquarkus.rest-client.atlas-build.url=http://dummy -Dquarkus.rest-client.atlas-release.url=http://dummy"
+    "cd $SCRIPT_CWD && bash ./hack/run-service-dev.sh -Dquarkus.rest-client.mequal.url=http://dummy -Dquarkus.rest-client.errata.url=http://dummy -Dquarkus.rest-client.atlas-build.url=http://dummy -Dquarkus.rest-client.atlas-release.url=http://dummy" -Dquarkus.rest-client.sbomer.url=http://localhost:8080
     "cd $SCRIPT_CWD && export REACT_APP_SBOMER_URL=http://localhost:8080 && bash ./hack/run-ui-dev.sh"
     # Add more commands as needed
 )

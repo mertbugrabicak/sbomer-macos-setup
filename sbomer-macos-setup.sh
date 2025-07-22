@@ -24,6 +24,9 @@ kubectl config use-context sbomer-local
 mkdir -p ./certs
 cp -r $HOME/certs ./
 
+# enable api fields
+kubectl apply -f $HOME/workspace/sbomer-setup/sbomer-macos-setup/feature-flags.yaml
+
 # npm install the ui
 pushd ./ui
 npm install
